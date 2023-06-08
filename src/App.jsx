@@ -1,18 +1,22 @@
-import React from 'react';
-import SlotM from './SlotMach';
+import React, { useState } from 'react';
 
-const App = ()=>{
- return(
-    <>
-        <h1 className='heading-style'> 🎰 Welcome to <span>Slot Machine Game</span> 🎰</h1>
-        <div className='slot-machine'>
-        <SlotM x = "😎" y = "😎" z = "😎"/>
-        <SlotM x = "😄" y = "😂" z = "😎"/>
-        <SlotM x = "🍓" y = "🍌" z = "🍓"/>
-        <SlotM x = "👨‍👨‍👧‍👧" y = "👨‍👨‍👧‍👧" z = "👨‍👨‍👧‍👧"/>
-        <SlotM x = "🚗" y = "🚗" z = "🚗"/>
-        </div>
-    </>
- )
+const App = () => {
+    let time = new Date().toLocaleTimeString();
+
+    //React Hooks
+    const[ctime,setCTime] = useState(time);
+
+    const UpdateTime = ()=>{
+        time = new Date().toLocaleTimeString();
+        setCTime(time);
+    }
+    setInterval(UpdateTime, 1000);
+
+   
+    return (
+        <>
+            <h1>{ctime}</h1>
+        </>
+    );
 }
 export default App;
